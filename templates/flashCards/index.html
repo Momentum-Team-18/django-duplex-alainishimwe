@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<a href="accounts/register">Click here to register</a>
+<a href="{% url 'add_card' %}">Add a new card</a>
+  
+<a href="{% url 'random_card' %}">Get a random Card</a>
+
+<hr>
+{% for card in cards %}
+    <p>{{card.question}}</p>
+    <a href="{% url 'show_answer' card.pk %}">Show answer</a>
+    <hr>
+{% endfor %}
+
+{% endblock %}
