@@ -7,6 +7,7 @@ class User(AbstractUser):
     birth_date = models.DateField(null=True, blank=True)
 
 
+
 class Deck(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
 
@@ -16,6 +17,7 @@ class Deck(models.Model):
 class Card(models.Model):
     question = models.CharField(max_length=100)
     answer = models.CharField(max_length=100)
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.question
